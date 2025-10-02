@@ -1,0 +1,95 @@
+/* RESET de base pour une meilleure cohérence */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9; /* Un fond léger */
+    color: #333;
+}
+
+/* Style de l'en-tête (Header) */
+.header {
+    background-color: #007bff; /* Bleu Amazon pour le header */
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.header h1 {
+    margin-top: 0;
+    font-size: 2.5em;
+}
+
+/* Conteneur principal pour centrer le contenu */
+.container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+    display: grid; /* Utilisation de Grid pour un affichage en grille */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* 300px min par colonne */
+    gap: 30px; /* Espace entre les fiches */
+}
+
+/* Style de la fiche de livre (Book Card) */
+.book-card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease; /* Animation au survol */
+}
+
+.book-card:hover {
+    transform: translateY(-5px); /* Légère élévation au survol */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.book-card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    max-height: 250px; /* Limiter la hauteur de l'image */
+    object-fit: contain; /* Assurer que l'image est bien contenue */
+}
+
+.book-card h3 {
+    color: #333;
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.book-card p {
+    font-size: 0.9em;
+    color: #666;
+    margin-bottom: 20px;
+    height: 60px; /* Taille fixe pour la description */
+    overflow: hidden; /* Cache l'excédent */
+}
+
+/* Style du bouton d'affiliation Amazon */
+.amazon-link {
+    display: inline-block;
+    background-color: #ff9900; /* Orange Amazon */
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.amazon-link:hover {
+    background-color: #e68a00;
+}
+
+/* Style du pied de page (Footer) */
+.footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+    color: white;
+    margin-top: 40px;
+}
