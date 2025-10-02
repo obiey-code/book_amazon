@@ -17,7 +17,7 @@ const livres = [
         description: "Gigi est une nouvelle écrite par Colette en 1944. Le thème est celui des demi-mondaines de la Belle Époque...",
         image: "https://m.media-amazon.com/images/I/91XCx49m7JL._SL1500_.jpg",
         lienAmazon: "https://amzn.to/4nPXuvb",
-        featured: false
+        featured: true
     },
     {
         titre: "Histoires érotiques pour adultes",
