@@ -8,7 +8,7 @@ const livres = [
         description: "Pendant les vacances de la Toussaint, Olivier Leroy pénètre sans en avoir le droit sur le terrain d'une des maisons de son village et fait une découverte étrange ayant peut-être un rapport avec l'une des énigmes les plus célèbres de l'Histoire...",
         image: "https://m.media-amazon.com/images/I/61WYeNnUqkL._AC_UL320_.jpg",
         lienAmazon: "https://amzn.to/48LLWUJ", 
-        featured: "false"
+        featured: false
     },
     {
         titre: "Gigi",
@@ -17,7 +17,7 @@ const livres = [
         description: "Gigi est une nouvelle écrite par Colette en 1944. Le thème est celui des demi-mondaines de la Belle Époque...",
         image: "https://m.media-amazon.com/images/I/91XCx49m7JL._SL1500_.jpg",
         lienAmazon: "https://amzn.to/4nPXuvb",
-        featured: "true"
+        featured: true
     },
     {
         titre: "Histoires érotiques pour adultes",
@@ -26,7 +26,7 @@ const livres = [
         description: "Un livre de sexe et d'érotisme torride pour passer un bon moment. Prenez ce livre maintenant et profitez des histoires intimes",
         image: "https://m.media-amazon.com/images/I/61v02ThtfCL._SY425_.jpg",
         lienAmazon: "https://amzn.to/474vX2R",
-        featured: "false"
+        featured: false
     },
   
 ];
