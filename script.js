@@ -26,7 +26,7 @@ const livres = [
         description: "Un livre de sexe et d'érotisme torride pour passer un bon moment. Prenez ce livre maintenant et profitez des histoires intimes",
         image: "https://m.media-amazon.com/images/I/61v02ThtfCL._SY425_.jpg",
         lienAmazon: "https://amzn.to/474vX2R",
-        featured: true
+        featured: false
     },
     {
         titre: "L'art de la pensée claire",
