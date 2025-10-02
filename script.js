@@ -4,23 +4,29 @@ const livres = [
     {
         titre: "Un voisin étrange",
         auteur: "Florian Dennisson",
+        categorie: "Romance",
         description: "Pendant les vacances de la Toussaint, Olivier Leroy pénètre sans en avoir le droit sur le terrain d'une des maisons de son village et fait une découverte étrange ayant peut-être un rapport avec l'une des énigmes les plus célèbres de l'Histoire.Le lendemain, un voisin bizarre vient s'installer en face de chez lui, dans une maison délabrée dont personne n'a jamais voulu depuis des décennies. Puni et ayant interdiction de sortir de chez lui,Olivier va avoir beaucoup de mal à mener son enquête et résoudre les mystères qui s'accumulent autour de lui..",
         image: "https://m.media-amazon.com/images/I/61WYeNnUqkL._AC_UL320_.jpg", // Remplace par l'URL de ta couverture
         lienAmazon: "https://amzn.to/48LLWUJ" // REMPLACE CE TEXTE
+        featured: true
     },
     {
         titre: "Gigi",
         auteur: "Colette",
+        categorie: "Romance",
         description: "Gigi est une nouvelle écrite par Colette en 1944, à l'âge de 71 ans, un de ses derniers écrits, dix ans avant sa mort. Le thème de la nouvelle est celui des demi-mondaines de la Belle Époque, à Paris, vers 1900, et plus précisément celui du devenir d'une adolescente qui grandit et évolue dans ce milieu, s'inspirant de la relation de Yola Henriquet et du patron de presse Henri Letellier. Cette nouvelle sera pendant des décennies une source d'inspiration pour des adaptations au cinéma et au théâtre, sous ce même titre « Gigi ». Colette, de son vrai nom Sidonie-Gabrielle Colette, était une écrivaine, journaliste et actrice française, née le 28 janvier 1873 à Saint-Sauveur-en-Puisaye. Elle est célèbre pour ses romans tels que Claudine à l'école, Chéri et surtout Gigi, qui a inspiré un film du même nom. Colette était une figure emblématique de la société parisienne, reconnue pour son style littéraire raffiné et sa vie audacieuse, souvent en rupture avec les conventions de son époque. Ses œuvres explorent des thèmes comme l'identité, la sexualité et la condition féminine dans une société patriarcale. En 1948, elle est devenue la première femme en France à recevoir des funérailles nationales, un hommage à son influence culturelle et littéraire.",
         image: "https://m.media-amazon.com/images/I/91XCx49m7JL._SL1500_.jpg", // Remplace par l'URL de ta couverture
         lienAmazon: "https://amzn.to/4nPXuvb" // REMPLACE CE TEXTE
+        featured: true
     },
     {
         titre: "Histoires érotiques pour adultes: Cinq histoires chaudes avec du sexe torride",
         auteur: " Paige Hervieux ",
+        categorie: "Romance",
         description: "Un livre de sexe et d'érotisme torride pour passer un bon moment. Prenez ce livre maintenant et profitez des histoires intimes",
         image: "https://m.media-amazon.com/images/I/61v02ThtfCL._SY425_.jpg", // Remplace par l'URL de ta couverture
         lienAmazon: "https://amzn.to/474vX2R" // REMPLACE CE TEXTE
+        featured: true
     }
 ];
 
