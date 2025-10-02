@@ -3,7 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Les Meilleurs Livres - Affiliation Amazon</title>
+    <title>Obiey : Les Meilleurs Livres - Affiliation Amazon</title>
+    
+    <meta name="description" content="Obiey : Votre sélection des livres incontournables et best-sellers. Trouvez votre prochaine lecture et soutenez le site via notre affiliation Amazon."/>
+    <link rel="canonical" href="https://www.tonsitedebase.com/" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Obiey - Le meilleur de la lecture, sélectionné pour vous." />
+    <meta property="og:description" content="Découvrez une sélection soignée des meilleurs livres du moment, romans, essais, et plus encore. Liens d'affiliation Amazon." />
+    <meta property="og:url" content="https://www.tonsitedebase.com/" />
+    <meta property="og:site_name" content="Obiey"/>
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:description" content="Découvrez une sélection soignée des meilleurs livres du moment, romans, essais, et plus encore. Liens d'affiliation Amazon." />
+    <meta name="twitter:title" content="Obiey - Le meilleur de la lecture, sélectionné pour vous." />
     
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     
@@ -16,16 +28,61 @@
             <div class="logo">Obiey</div>
             <p class="tagline">Votre partenaire en lecture et affiliation Amazon.</p>
         </div>
-        
         <h1>Découvrez les Lectures Incontournables</h1>
     </header>
 
+    <nav class="main-nav">
+        <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="#livres-container">Explorer les Livres</a></li>
+            <li><a href="mentions.html">Mentions Légales</a></li> 
+        </ul>
+    </nav>
+    
+    <section class="hero-section">
+        <div class="hero-content">
+            <h2>Trouvez l'inspiration : Votre prochaine grande lecture vous attend !</h2>
+            <p>Découvrez les pépites littéraires sélectionnées par Obiey et accédez directement aux meilleures offres Amazon.</p>
+            <a href="#livres-container" class="cta-button">Explorer la sélection de livres</a>
+        </div>
+    </section>
+
+    <section class="featured-section">
+        <h3>Nos coups de cœur du moment</h3>
+        <div id="featured-slider" class="slider-container">
+            <p style="text-align: center;">Chargement des livres en vedette...</p>
+        </div>
+    </section>
+
+    <div class="filter-section">
+        <div class="search-box">
+            <label for="search-input">Rechercher un titre :</label>
+            <input type="text" id="search-input" placeholder="Titre du livre..." class="filter-input">
+        </div>
+        
+        <div class="filter-dropdown">
+            <label for="filter-categorie">Filtrer par Catégorie :</label>
+            <select id="filter-categorie" class="filter-select">
+                <option value="toutes">Toutes les Catégories</option>
+            </select>
+        </div>
+
+        <div class="filter-dropdown">
+            <label for="filter-auteur">Filtrer par Auteur :</label>
+            <select id="filter-auteur" class="filter-select">
+                <option value="tous">Tous les Auteurs</option>
+            </select>
+        </div>
+    </div>
+    
     <main class="container" id="livres-container">
         <h2 style="text-align: center;">Chargement des livres...</h2>
     </main>
 
     <footer class="footer">
-        <p>&copy; 2025 Obiey. Tous droits réservés. Nous participons au programme Partenaires Amazon.</p>
+        <p>&copy; 2025 Obiey. Tous droits réservés. Affilié Amazon. | 
+            <a href="mentions.html" style="color: white; text-decoration: underline;">Mentions Légales et Affiliation</a>
+        </p>
     </footer>
 
     <script src="script.js"></script>
