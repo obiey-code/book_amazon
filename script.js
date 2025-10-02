@@ -17,7 +17,7 @@ const livres = [
         description: "Gigi est une nouvelle écrite par Colette en 1944. Le thème est celui des demi-mondaines de la Belle Époque...",
         image: "https://m.media-amazon.com/images/I/91XCx49m7JL._SL1500_.jpg",
         lienAmazon: "https://amzn.to/4nPXuvb",
-        featured: true
+        featured: false
     },
     {
         titre: "Histoires érotiques pour adultes",
@@ -26,17 +26,9 @@ const livres = [
         description: "Un livre de sexe et d'érotisme torride pour passer un bon moment. Prenez ce livre maintenant et profitez des histoires intimes",
         image: "https://m.media-amazon.com/images/I/61v02ThtfCL._SY425_.jpg",
         lienAmazon: "https://amzn.to/474vX2R",
-        featured: false
+        featured: true
     },
-    {
-        titre: "L'art de la pensée claire",
-        auteur: "Rolf Dobelli",
-        categorie: "Développement Personnel",
-        description: "Un guide fascinant pour éviter les pièges cognitifs et prendre de meilleures décisions.",
-        image: "https://via.placeholder.com/300x400?text=Livre+DP1",
-        lienAmazon: "TON_LIEN_AFFILIATION_AMAZON_4",
-        featured: false
-    },
+  
 ];
 
 // 2. Fonction pour créer la fiche HTML d'un livre
