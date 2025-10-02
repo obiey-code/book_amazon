@@ -16,12 +16,40 @@ body {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.header h1 {
-    margin-top: 0;
-    font-size: 2.5em;
+/* Conteneur du logo et de la description */
+.logo-container {
+    margin-bottom: 20px;
 }
 
-/* Conteneur principal pour centrer le contenu */
+/* STYLES DU LOGO TEXTUEL "OBIEY" */
+.logo {
+    font-family: 'Verdana', sans-serif; /* Une police claire */
+    font-size: 3em; /* Grande taille pour se démarquer */
+    font-weight: 900;
+    color: #ff9900; /* Orange Amazon pour la couleur du logo */
+    letter-spacing: 5px; /* Espacement pour un look moderne */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Légère ombre */
+    display: inline-block;
+    padding: 5px 15px;
+    border: 3px solid white; /* Un contour blanc pour le démarquer */
+    border-radius: 5px;
+}
+
+.tagline {
+    font-style: italic;
+    font-size: 1.1em;
+    color: #f4f4f9; /* Couleur blanche cassée pour la description */
+    margin-top: 10px;
+}
+
+/* Style du titre principal sous le logo */
+.header h1 {
+    font-size: 2em; /* Plus petit maintenant que le logo est grand */
+    margin-top: 15px;
+    margin-bottom: 0;
+}
+
+/* Conteneur principal (main) pour centrer et organiser le contenu */
 .container {
     max-width: 1200px;
     margin: 40px auto;
@@ -65,7 +93,7 @@ body {
     font-size: 0.9em;
     color: #666;
     margin-bottom: 20px;
-    height: 60px; /* Taille fixe pour la description */
+    height: 60px; /* Taille fixe pour la description (3 lignes environ) */
     overflow: hidden; /* Cache l'excédent */
 }
 
