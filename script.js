@@ -1,35 +1,43 @@
 // 1. Définir la liste de tes livres
-// C'est ici que tu vas mettre à jour les informations, y compris ton lien d'affiliation Amazon !
+// ATTENTION : Les virgules après 'lienAmazon' sont cruciales !
 const livres = [
     {
         titre: "Un voisin étrange",
         auteur: "Florian Dennisson",
         categorie: "Romance tendance",
-        description: "Pendant les vacances de la Toussaint, Olivier Leroy pénètre sans en avoir le droit sur le terrain d'une des maisons de son village et fait une découverte étrange ayant peut-être un rapport avec l'une des énigmes les plus célèbres de l'Histoire.Le lendemain, un voisin bizarre vient s'installer en face de chez lui, dans une maison délabrée dont personne n'a jamais voulu depuis des décennies. Puni et ayant interdiction de sortir de chez lui,Olivier va avoir beaucoup de mal à mener son enquête et résoudre les mystères qui s'accumulent autour de lui..",
+        description: "Pendant les vacances de la Toussaint, Olivier Leroy pénètre sans en avoir le droit sur le terrain d'une des maisons de son village et fait une découverte étrange ayant peut-être un rapport avec l'une des énigmes les plus célèbres de l'Histoire...",
         image: "https://m.media-amazon.com/images/I/61WYeNnUqkL._AC_UL320_.jpg",
-        lienAmazon: "https://amzn.to/48LLWUJ", // <-- VIRGULE AJOUTÉE ICI
-        featured: true,
+        lienAmazon: "https://amzn.to/48LLWUJ", 
+        featured: true
     },
     {
         titre: "Gigi",
         auteur: "Colette",
-        categorie: "Romance",
-        description: "Gigi est une nouvelle écrite par Colette en 1944, à l'âge de 71 ans, un de ses derniers écrits, dix ans avant sa mort. Le thème de la nouvelle est celui des demi-mondaines de la Belle Époque, à Paris, vers 1900, et plus précisément celui du devenir d'une adolescente qui grandit et évolue dans ce milieu, s'inspirant de la relation de Yola Henriquet et du patron de presse Henri Letellier. Cette nouvelle sera pendant des décennies une source d'inspiration pour des adaptations au cinéma et au théâtre, sous ce même titre « Gigi ». Colette, de son vrai nom Sidonie-Gabrielle Colette, était une écrivaine, journaliste et actrice française, née le 28 janvier 1873 à Saint-Sauveur-en-Puisaye. Elle est célèbre pour ses romans tels que Claudine à l'école, Chéri et surtout Gigi, qui a inspiré un film du même nom. Colette était une figure emblématique de la société parisienne, reconnue pour son style littéraire raffiné et sa vie audacieuse, souvent en rupture avec les conventions de son époque. Ses œuvres explorent des thèmes comme l'identité, la sexualité et la condition féminine dans une société patriarcale. En 1948, elle est devenue la première femme en France à recevoir des funérailles nationales, un hommage à son influence culturelle et littéraire.",
+        categorie: "Romance Classique",
+        description: "Gigi est une nouvelle écrite par Colette en 1944. Le thème est celui des demi-mondaines de la Belle Époque...",
         image: "https://m.media-amazon.com/images/I/91XCx49m7JL._SL1500_.jpg",
-        lienAmazon: "https://amzn.to/4nPXuvb", // <-- VIRGULE AJOUTÉE ICI
-        featured: true,
+        lienAmazon: "https://amzn.to/4nPXuvb",
+        featured: true
     },
     {
-        titre: "Histoires érotiques pour adultes: Cinq histoires chaudes avec du sexe torride",
+        titre: "Histoires érotiques pour adultes",
         auteur: " Paige Hervieux ",
-        categorie: "Romance",
+        categorie: "Romance Érotique",
         description: "Un livre de sexe et d'érotisme torride pour passer un bon moment. Prenez ce livre maintenant et profitez des histoires intimes",
         image: "https://m.media-amazon.com/images/I/61v02ThtfCL._SY425_.jpg",
-        lienAmazon: "https://amzn.to/474vX2R", // <-- VIRGULE AJOUTÉE ICI (même si c'est le dernier, c'est mieux si tu ajoutes un livre après)
-        featured: true,
-    }
+        lienAmazon: "https://amzn.to/474vX2R",
+        featured: true
+    },
+    {
+        titre: "L'art de la pensée claire",
+        auteur: "Rolf Dobelli",
+        categorie: "Développement Personnel",
+        description: "Un guide fascinant pour éviter les pièges cognitifs et prendre de meilleures décisions.",
+        image: "https://via.placeholder.com/300x400?text=Livre+DP1",
+        lienAmazon: "TON_LIEN_AFFILIATION_AMAZON_4",
+        featured: false
+    },
 ];
-
 
 // 2. Fonction pour créer la fiche HTML d'un livre
 function creerFicheLivre(livre) {
@@ -46,18 +54,49 @@ function creerFicheLivre(livre) {
     `;
 }
 
-// 3. Fonction pour afficher les livres dans le conteneur principal
+// 3. Fonction pour afficher les livres dans le conteneur principal, organisés par catégorie
 function afficherLivres(livresAAfficher) {
     const container = document.getElementById('livres-container');
     container.innerHTML = ''; 
 
     if (livresAAfficher.length === 0) {
-        container.innerHTML = '<p style="text-align: center; grid-column: 1 / -1;">Aucun livre trouvé pour cette sélection.</p>';
-    } else {
-        livresAAfficher.forEach(livre => {
-            const fiche = creerFicheLivre(livre);
-            container.innerHTML += fiche; 
-        });
+        container.innerHTML = '<p style="text-align: center; width: 100%; margin: 40px auto;">Aucun livre trouvé pour cette sélection.</p>';
+        return;
+    }
+
+    // 1. Regrouper les livres par catégorie
+    const livresParCategorie = livresAAfficher.reduce((acc, livre) => {
+        const categorie = livre.categorie || 'Autres';
+        if (!acc[categorie]) {
+            acc[categorie] = [];
+        }
+        acc[categorie].push(livre);
+        return acc;
+    }, {});
+
+    // 2. Créer l'affichage pour chaque catégorie
+    for (const categorie in livresParCategorie) {
+        if (livresParCategorie.hasOwnProperty(categorie)) {
+            const livresDeCetteCategorie = livresParCategorie[categorie];
+            
+            // Création du titre de la catégorie (h2.category-title)
+            const categoryHeader = document.createElement('h2');
+            categoryHeader.classList.add('category-title');
+            categoryHeader.textContent = categorie;
+            container.appendChild(categoryHeader);
+
+            // Création du conteneur de la grille (div.category-grid)
+            const categoryGrid = document.createElement('div');
+            categoryGrid.classList.add('category-grid');
+
+            // Ajout des fiches de livres à la grille de la catégorie
+            livresDeCetteCategorie.forEach(livre => {
+                const ficheHTML = creerFicheLivre(livre);
+                categoryGrid.insertAdjacentHTML('beforeend', ficheHTML);
+            });
+
+            container.appendChild(categoryGrid);
+        }
     }
 }
 
@@ -65,6 +104,8 @@ function afficherLivres(livresAAfficher) {
 function peuplerAuteurs() {
     const auteursUniques = new Set(livres.map(livre => livre.auteur));
     const selectElement = document.getElementById('filter-auteur');
+
+    if (!selectElement) return; // Sécurité si l'élément n'existe pas
 
     auteursUniques.forEach(auteur => {
         const option = document.createElement('option');
@@ -76,12 +117,11 @@ function peuplerAuteurs() {
 
 // 5. Fonction pour peupler le menu déroulant des catégories
 function peuplerCategories() {
-    // Si l'élément n'existe pas, on sort de la fonction pour éviter le blocage
-    const selectElement = document.getElementById('filter-categorie');
-    if (!selectElement) return; 
-    
     const categoriesUniques = new Set(livres.map(livre => livre.categorie));
+    const selectElement = document.getElementById('filter-categorie');
     
+    if (!selectElement) return; // Sécurité si l'élément n'existe pas
+
     categoriesUniques.forEach(categorie => {
         const option = document.createElement('option');
         option.value = categorie;
@@ -92,7 +132,6 @@ function peuplerCategories() {
 
 // 6. Fonction pour afficher les livres dans le carrousel (featured)
 function afficherLivresVedette() {
-    // Si l'élément n'existe pas, on sort de la fonction pour éviter le blocage
     const sliderContainer = document.getElementById('featured-slider');
     if (!sliderContainer) return;
 
@@ -113,7 +152,7 @@ function afficherLivresVedette() {
 
 // 7. Fonction unifiée de gestion du filtrage et de la recherche
 function gererLeFiltrageEtLaRecherche() {
-    // On ajoute des vérifications pour éviter les erreurs si des éléments HTML manquent
+    // Récupérer les valeurs des filtres (avec vérifications de sécurité)
     const auteurElement = document.getElementById('filter-auteur');
     const categorieElement = document.getElementById('filter-categorie');
     const rechercheElement = document.getElementById('search-input');
@@ -156,7 +195,7 @@ peuplerCategories();
 // Afficher les livres en vedette (carrousel)
 afficherLivresVedette(); 
 
-// Attacher les écouteurs d'événement (tous appellent la même fonction)
+// Attacher les écouteurs d'événement pour le filtrage
 const filterCategorie = document.getElementById('filter-categorie');
 if (filterCategorie) {
     filterCategorie.addEventListener('change', gererLeFiltrageEtLaRecherche);
