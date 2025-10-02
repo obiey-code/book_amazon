@@ -24,10 +24,10 @@ const livres = [
     }
 ];
 
+
 // 2. Fonction pour créer la fiche HTML d'un livre
 function creerFicheLivre(livre) {
-    // Utilisation des "template literals" (backticks ``) pour construire le HTML facilement
-    const htmlFiche = `
+    return `
         <div class="book-card">
             <img src="${livre.image}" alt="Couverture du livre ${livre.titre}">
             <h3>${livre.titre}</h3>
@@ -38,24 +38,111 @@ function creerFicheLivre(livre) {
             </a>
         </div>
     `;
-    return htmlFiche;
 }
 
-// 3. Fonction principale pour afficher tous les livres
-function afficherTousLesLivres() {
-    // Récupérer le conteneur principal dans le HTML (l'élément avec l'ID 'livres-container')
+// 3. Fonction pour afficher les livres dans le conteneur principal
+function afficherLivres(livresAAfficher) {
     const container = document.getElementById('livres-container');
-    
-    // Vider le contenu initial ("Chargement des livres...")
     container.innerHTML = ''; 
 
-    // Parcourir le tableau 'livres' et créer la fiche pour chaque livre
-    livres.forEach(livre => {
-        const fiche = creerFicheLivre(livre);
-        // Ajouter le HTML de la fiche au conteneur
-        container.innerHTML += fiche; 
+    if (livresAAfficher.length === 0) {
+        container.innerHTML = '<p style="text-align: center; grid-column: 1 / -1;">Aucun livre trouvé pour cette sélection.</p>';
+    } else {
+        livresAAfficher.forEach(livre => {
+            const fiche = creerFicheLivre(livre);
+            container.innerHTML += fiche; 
+        });
+    }
+}
+
+// 4. Fonction pour peupler le menu déroulant des auteurs
+function peuplerAuteurs() {
+    const auteursUniques = new Set(livres.map(livre => livre.auteur));
+    const selectElement = document.getElementById('filter-auteur');
+
+    auteursUniques.forEach(auteur => {
+        const option = document.createElement('option');
+        option.value = auteur;
+        option.textContent = auteur;
+        selectElement.appendChild(option);
     });
 }
 
-// 4. Appeler la fonction pour lancer l'affichage quand la page est chargée
-afficherTousLesLivres();
+// 5. Fonction pour peupler le menu déroulant des catégories
+function peuplerCategories() {
+    const categoriesUniques = new Set(livres.map(livre => livre.categorie));
+    const selectElement = document.getElementById('filter-categorie');
+
+    categoriesUniques.forEach(categorie => {
+        const option = document.createElement('option');
+        option.value = categorie;
+        option.textContent = categorie;
+        selectElement.appendChild(option);
+    });
+}
+
+// 6. Fonction pour afficher les livres dans le carrousel (featured)
+function afficherLivresVedette() {
+    const sliderContainer = document.getElementById('featured-slider');
+    const livresVedette = livres.filter(livre => livre.featured === true);
+    
+    sliderContainer.innerHTML = '';
+    
+    if (livresVedette.length === 0) {
+        sliderContainer.innerHTML = '<p style="text-align: center;">Aucun livre en vedette pour le moment.</p>';
+        sliderContainer.style.overflowX = 'hidden'; 
+    } else {
+        livresVedette.forEach(livre => {
+            const fiche = creerFicheLivre(livre);
+            sliderContainer.innerHTML += fiche;
+        });
+    }
+}
+
+// 7. Fonction unifiée de gestion du filtrage et de la recherche
+function gererLeFiltrageEtLaRecherche() {
+    const auteurSelectionne = document.getElementById('filter-auteur').value;
+    const categorieSelectionnee = document.getElementById('filter-categorie').value;
+    const termeDeRecherche = document.getElementById('search-input').value.toLowerCase().trim();
+
+    let livresFiltres = livres;
+
+    // FILTRE 1 : CATÉGORIE
+    if (categorieSelectionnee !== 'toutes') {
+        livresFiltres = livresFiltres.filter(livre => livre.categorie === categorieSelectionnee);
+    }
+    
+    // FILTRE 2 : AUTEUR
+    if (auteurSelectionne !== 'tous') {
+        livresFiltres = livresFiltres.filter(livre => livre.auteur === auteurSelectionne);
+    }
+
+    // FILTRE 3 : RECHERCHE PAR TITRE
+    if (termeDeRecherche) {
+        livresFiltres = livresFiltres.filter(livre => 
+            livre.titre.toLowerCase().includes(termeDeRecherche)
+        );
+    }
+
+    // Afficher le résultat final
+    afficherLivres(livresFiltres);
+}
+
+
+// 8. INITIALISATION DU SITE
+// ==========================
+
+// Remplir les menus déroulants
+peuplerAuteurs();
+peuplerCategories();
+
+// Afficher les livres en vedette (carrousel)
+afficherLivresVedette(); 
+
+// Attacher les écouteurs d'événement (tous appellent la même fonction)
+document.getElementById('filter-categorie').addEventListener('change', gererLeFiltrageEtLaRecherche);
+document.getElementById('filter-auteur').addEventListener('change', gererLeFiltrageEtLaRecherche);
+document.getElementById('search-input').addEventListener('input', gererLeFiltrageEtLaRecherche);
+
+// Afficher tous les livres par défaut
+gererLeFiltrageEtLaRecherche();
