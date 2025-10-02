@@ -6,7 +6,7 @@ const livres = [
         auteur: "Florian Dennisson",
         description: "Pendant les vacances de la Toussaint, Olivier Leroy pénètre sans en avoir le droit sur le terrain d'une des maisons de son village et fait une découverte étrange ayant peut-être un rapport avec l'une des énigmes les plus célèbres de l'Histoire.Le lendemain, un voisin bizarre vient s'installer en face de chez lui, dans une maison délabrée dont personne n'a jamais voulu depuis des décennies. Puni et ayant interdiction de sortir de chez lui,Olivier va avoir beaucoup de mal à mener son enquête et résoudre les mystères qui s'accumulent autour de lui..",
         image: "https://m.media-amazon.com/images/I/61WYeNnUqkL._AC_UL320_.jpg", // Remplace par l'URL de ta couverture
-        lienAmazon: "https://amzn.to/4okArbJ1" // REMPLACE CE TEXTE
+        lienAmazon: "https://obiey-code.github.io/book_amazon/" // REMPLACE CE TEXTE
     },
     {
         titre: "Gigi",
